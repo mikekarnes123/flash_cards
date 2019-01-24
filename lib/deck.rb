@@ -1,12 +1,20 @@
+require './lib/card'
+
 class Deck
 
-  attr_reader :first_card,
-              :second_card,
-              :third_card
+  attr_reader :cards
 
-  def initialize(first_card, second_card, third_card)
-    @first_card = first_card
-    @second_card = second_card
-    @third_card = third_card
+  def initialize(cards)
+  @cards = cards
   end
+
+  def cards_in_category(category)
+    cards.select{|card| card.category == category}
+  end
+
+  def count
+    cards.count
+  end 
+
+
 end
