@@ -19,6 +19,18 @@ class Round
     return turn
   end
 
+  def percent_correct
+    (@number_correct/@turns.length.to_f)*100
+  end
+
+  def number_correct_by_category(category)
+    number = 0
+    @turns.each do |turn|
+      number +=1 if turn.card.category == category && turn.correct?
+    end
+    return number
+  end
+
 
 
 end

@@ -44,11 +44,28 @@ class RoundTest < Minitest::Test
 
   def test_take_turn_creates_new_turn
     new_turn = @round.take_turn("Juneau")
-    assert_instance_of Turn, new_turn  
+    assert_instance_of Turn, new_turn
   end
 
   def test_can_count_correct_number
     new_turn = @round.take_turn("Juneau")
     assert_equal 1, @round.number_correct
   end
+
+  def test_can_track_percent_correct
+    new_turn = @round.take_turn("Juneau")
+    assert_equal 100.0, @round.percent_correct
+  end
+
+  def test_it_can_determine_number_correct_by_category
+    new_turn = @round.take_turn("Juneau")
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+  end
+
+  def test_it_can_determine_percent_correct_by_category
+    skip
+    new_turn = @round.take_turn("Juneau")
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+  end
+
 end
