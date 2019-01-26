@@ -14,9 +14,9 @@ attr_reader :guess,
 
   def feedback
     if correct?
-      "CORRECT!"
+      puts "CORRECT!"
     else
-      "INCORRECT"
+      puts "INCORRECT"
 
     end
   end

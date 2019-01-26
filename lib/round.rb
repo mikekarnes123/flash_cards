@@ -1,10 +1,12 @@
 require './lib/turn'
+# require './flashcards_runner'
 
 class Round
   attr_reader :deck,
               :current_card,
               :turns,
               :number_correct
+
 
   def initialize(deck)
     @deck = deck
@@ -32,8 +34,22 @@ class Round
     num.length
   end
 
+  def number_turns_by_category(category)
+    num = 0
+    @turns.each do
+      num += 1 if @turns.card.category == category
+    end
+    return num
+  end
+
+
   def percent_correct_by_category(category)
-    (number_correct_by_category(category)/@turns.length)*100
+    (number_correct_by_category(category)/@turns.length.to_f)*100
+  end
+
+  def start
+    puts "Hello! You're playing with #{@deck.count} cards."
+    puts "-" * 40
   end
 
 end
