@@ -1,3 +1,5 @@
+require './lib/turn'
+
 class Round
   attr_reader :deck,
               :current_card,
@@ -24,13 +26,14 @@ class Round
   end
 
   def number_correct_by_category(category)
-    number = 0
-    @turns.each do |turn|
-      number +=1 if turn.card.category == category && turn.correct?
+    num = @turns.find_all do |turn|
+      turn.card.category == category && turn.correct?
     end
-    return number
+    num.length
   end
 
-
+  def percent_correct_by_category(category)
+    (number_correct_by_category(category)/@turns.length)*100
+  end
 
 end

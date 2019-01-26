@@ -63,7 +63,6 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_can_determine_percent_correct_by_category
-    skip
     new_turn = @round.take_turn("Juneau")
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
   end
