@@ -30,8 +30,8 @@ deck.cards.count.times do
   round.turns.last.feedback
 end
 require 'pry'; binding.pry
-puts "******* Game Over *******"
-puts "You had #{round.number_correct} out of #{round.deck.cards.count} for a total score of #{round.percent_correct}%."
-puts "Geography - #{round.percent_correct_by_category(:Geography)}%."
-puts "STEM - #{round.percent_correct_by_category(:STEM)}%."
-puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture)}%."
+puts "******************** Game Over ********************"
+puts "You had #{round.number_correct} out of #{round.deck.cards.count} for a total score of #{round.percent_correct.round(2)}%."
+puts "Geography - #{round.percent_correct_by_category(:Geography).round(2)}%."
+puts "STEM - #{round.percent_correct_by_category(:STEM).round(2)}%."
+puts "Pop Culture - #{round.percent_correct_by_category(:PopCulture).round(2)}%."
