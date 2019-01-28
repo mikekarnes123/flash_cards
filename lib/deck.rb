@@ -1,4 +1,4 @@
-require './lib/card'
+
 
 class Deck
 
@@ -14,7 +14,7 @@ class Deck
 
   def count
     cards.count
-  end 
+  end
 
 
 end
